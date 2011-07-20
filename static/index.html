@@ -1,16 +1,64 @@
 <html>
+  <head>
+    <title>Geo Chicago Data</title>
+  </head>
   <body>
+    <h1>Geo Chicago Data</h1>
     <p>
-      <a href="/generate">Generate Metadata</a> (i.e. find all views that contain location data)
+      This application was created during
+      the <a href="www.appsformetrochicago.com/">Apps for Metro
+      Chicago</a> <a href="http://www.appsformetrochicago.com/content/google-chicago-hackathon">Google
+      hackathon</a> to demonstrate the diversity of data made
+      available by the city on the
+      <a href="http://data.cityofchicago.org/">City of Chicago Data
+      Portal</a>.  It queries all entries across each of the data sets
+      near a particular geographical address.
     </p>
+
     <p>
       <form action="/query" method="get">
       Query for all records within
-      <input type="input" name="range" value="40"></input> meters of
+      <select name="range">
+        <option value="30">100 feet</option>
+        <option value="202" selected>1 block</option>
+        <option value="403">2 blocks</option>
+        <option value="805">4 blocks</option>
+        <option value="1610">1 mile</option>
+      </select>
+      of
+      <input type="input" name="address" value="20 W. Kinzie"></input>
+      <input type="submit" value="Go">
+      </form>
+    </p>
+<!--
+    <p>
+      <form action="/query" method="get">
+      Query for all records within
+      <input type="input" name="range" value="50"></input> meters of
       (<input type="input" name="lat" value="41.7073"></input>, 
       <input type="input" name="lng" value="-87.5353"</input>)
       <input type="submit" value="Go">
       </form>
     </p>
+-->
+    <p>
+      Admins can also:
+      <a href="/admin/build-metadata">Generate Metadata</a> (i.e. find all views that contain location data)
+    </p>
+
+    <p>
+      This application will not be entered in the Apps for Metro
+      Chicago contest, but feel free to use it as tool for gathering
+      additional ideas or steal its code to use in your own project.
+      The source code is available on GitHub
+      at <a href="https://github.com/schwardo/geochicagodata">geochicagodata</a>.
+      The application was developed in Python to run
+      on <a href="http://code.google.com/">Google App Engine</a> but
+      should be easy to port it to Python environments (check the
+      history in Git before App Engine-specific optimizations were
+      added) or other languages (it uses JSON and not any particular
+      Python client library for the data).
+    </p>
+
   </body>
 </html>

@@ -1,4 +1,4 @@
-application: myhouse
+application: geochicagodata
 version: 1
 runtime: python
 api_version: 1
@@ -8,5 +8,12 @@ handlers:
   static_files: static/index.html
   upload: static/index.html
 
+- url: /admin/.*
+  script: admin.py
+  login: admin
+
 - url: /.*
   script: main.py
+
+builtins:
+- deferred: on
